@@ -1,0 +1,83 @@
+.frase{
+  font-size: 18px;
+  text-align: left;
+}
+.campo-digitacao{
+  font-size: 18px;
+  border-radius: 5px;
+  height: 130px;
+  background-color: #fff;
+  border-color: #aeaeae;
+  outline:none;
+  text-align: center;
+  resize: none;
+}
+.campo-digitacao:disabled{
+  background-color: #ffe6e5;
+  border-color: #ff0000;
+  text-align: center;
+  resize: none;
+}
+body{
+  background-color: #e6feff;
+}
+.icones{
+  vertical-align: middle;
+}
+
+.campo-correto{
+  color: green;
+}
+.campo-errado{
+  color: red;
+}
+.input-desafio{
+  text-align: middle;
+  border-radius: 5px;
+  background-color: #fff;
+  border-color: #aeaeae;
+  outline:none;
+  text-align: center;
+  font-size: 18px;
+  height: 50px;
+  resize: none;
+
+}
+.container-frase{
+  background-color: #88d2ff;
+  padding-top:10px;
+  padding-bottom:10px;
+  margin: 20px 0px 20px 0px;
+}
+
+.placar{
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #b4b4b4;
+}
+.box-frase{
+  margin-top: 25px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #b4b4b4; 
+  min-height: 50px;
+}
+
+.btn-margin{
+  margin: 5px;
+}
+.botoes{
+  margin-left: -14px;
+}
+.padding-left{
+  padding-left: 20px;
+}
+.padding-right{
+  padding-left: 20px;
+}

@@ -1,0 +1,10 @@
+create table Produto  (
+	 id bigint AUTO_INCREMENT,
+	 nome varchar(255) not null, 
+	 descricao varchar(255) not null, 
+	 valor_total double check (valor>=0),
+	 valor_frete double check (valor>=0),
+	 quantidade integer check (quantidade>=0),
+	 imagem longblob not null,
+	 primary key (id)
+ );
