@@ -2,6 +2,7 @@ package br.com.blackmarket.controller;
 
 import javax.inject.Inject;
 
+import br.com.blackmarket.annotations.Public;
 import br.com.blackmarket.dao.UsuarioDao;
 import br.com.blackmarket.model.Usuario;
 import br.com.caelum.vraptor.Controller;
@@ -32,13 +33,14 @@ public class LoginController {
 		this(null, null, null, null);
 	}
 	
-
+	@Public
 	@Get("/login/")
 	public void formulario(){
 		
 	}
 	
 	@Post
+	@Public
 	public void autentica(Usuario usuario){
 		if(!dao.existe(usuario)){
 			validator.add(new I18nMessage("login","login.invalido"));
