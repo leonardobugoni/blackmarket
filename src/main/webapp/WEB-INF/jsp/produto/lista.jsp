@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="../materialize/css/libs/google-fonts.css">
 <title>Produtos</title>
 </head>
-<body>
+<body class="container">
 	<h1 class="center-align">PRODUTOS</h1>
 	<table class="centered bordered striped">
 		<thead>
@@ -32,5 +32,6 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	${message}
 </body>
 </html>
