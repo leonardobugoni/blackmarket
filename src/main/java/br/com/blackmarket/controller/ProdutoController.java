@@ -6,6 +6,7 @@ import javax.validation.Valid;
 import br.com.blackmarket.dao.ProdutoDao;
 import br.com.blackmarket.model.Produto;
 import br.com.caelum.vraptor.Controller;
+import br.com.caelum.vraptor.Delete;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
@@ -46,5 +47,11 @@ public class ProdutoController {
 		dao.adiciona(produto);
 		result.include("message", "PRODUTO ADICIONADO");
 		result.redirectTo(this).lista();
+	}
+		
+	@Delete
+	public void remove(Produto produto){
+	    dao.remove(produto);
+	    result.redirectTo(this).lista();
 	}
 }

@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 public class Produto {
 	
 	@GeneratedValue @Id
-	private Long id;
+	public Long id;
 	
 	@NotNull(message="NÃO PODE SER EM BRANCO")
 	private String nome;

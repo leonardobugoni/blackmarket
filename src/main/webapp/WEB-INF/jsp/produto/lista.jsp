@@ -14,16 +14,18 @@
 	<table class="centered bordered striped">
 		<thead>
 			<tr>
+				<th>ID</th>
 				<th>NOME</th>
 				<th>DESCRICAO</th>
-				<th>QUANTIDADE</th>			
-				<th>VALOR</th>			
-				<th>VALOR FRETE</th>	
+				<th>QUANTIDADE</th>
+				<th>VALOR</th>
+				<th>VALOR FRETE</th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach items="${produtoList}" var="produto">
 				<tr>
+					<td>${produto.id}</td>			
 					<td>${produto.nome}</td>			
 					<td>${produto.descricao}</td>			
 					<td>${produto.quantidade}</td>			
@@ -34,5 +36,19 @@
 		</tbody>
 	</table>
 	${message}
+	
+	
+		
+	
+	<div class="row">
+		<form action="<c:url value='/produto/remove'/>" method="DELETE">
+			<div class="col s4">
+				REMOVER PELO ID:<input type="text" />
+			</div>
+			<div class="col s4 right">
+				<input type="submit" class="btn waves-effect waves-light btn-large right" value="REMOVER"></input>
+			</div>
+		</form>
+	</div>
 </body>
 </html>
