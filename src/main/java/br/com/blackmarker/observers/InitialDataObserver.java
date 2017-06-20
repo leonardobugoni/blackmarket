@@ -24,7 +24,7 @@ public class InitialDataObserver {
 		EntityManager em = JPAUtil.criaEntityManager();
 		em.getTransaction().begin();
 
-		em.persist(new Usuario("leoferreira", "123456"));
+		em.persist(new Usuario("falcatruas", "123456"));
 
 		em.persist(new Produto("IPHONE 6S", "64GB PRATA", 20, 2200.99, 25.00));
 		em.persist(new Produto("SAMSUNG J5", "16GB DOURADO", 50, 1500.90, 20.00));
