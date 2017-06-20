@@ -2,20 +2,30 @@ package br.com.blackmarket.dao;
 
 import java.util.List;
 
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import br.com.blackmarket.model.Produto;
 
+@RequestScoped
 public class ProdutoDao {
 
 	private final EntityManager em;
 
+	@Inject
 	public ProdutoDao(EntityManager em) {
 		this.em = em;
 	}
 	
+	public ProdutoDao(){
+		this(null);
+	}
+	
 	public void adiciona(Produto produto) {
+		em.getTransaction().begin();
 		em.persist(produto);
+		em.getTransaction().commit();
 	}
 
 	public void remove(Produto produto) {

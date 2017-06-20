@@ -1,5 +1,6 @@
 package br.com.blackmarket.dao;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import br.com.blackmarket.model.Usuario;
@@ -8,7 +9,7 @@ public class UsuarioDao {
 
 	private final EntityManager em;
 	
-//	@Inject
+	@Inject
 	public UsuarioDao(EntityManager em) {
 		this.em = em;
 	}

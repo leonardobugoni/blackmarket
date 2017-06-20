@@ -4,9 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="../materialize/css/libs/materialize.min.css">
-<link rel="stylesheet" type="text/css" href="../materialize/css/libs/google-fonts.css">
-
+<link rel="stylesheet" type="text/css" href="<c:url value='materialize/css/libs/materialize.min.css'/>">
+<link rel="stylesheet" type="text/css" href="<c:url value='materialize/css/libs/google-fonts.css'/>">
 <title>BLACK MARKET</title>
 </head>
 <body>

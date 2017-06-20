@@ -1,29 +1,32 @@
 package br.com.blackmarket.controller;
 
-import java.util.List;
-
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
+import javax.validation.Valid;
+
 import br.com.blackmarket.dao.ProdutoDao;
 import br.com.blackmarket.model.Produto;
-import br.com.blackmarket.util.JPAUtil;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.validator.Validator;
 
 @Controller
 public class ProdutoController {
 	
 	private final Result result;
+	private final ProdutoDao dao;
+	private final Validator validator; 
 	
 	@Inject
-	public ProdutoController(Result result){
+	public ProdutoController(Result result, ProdutoDao dao, Validator validator){
 		this.result = result;
+		this.dao = dao;
+		this.validator = validator;
 	}
 	
 	public ProdutoController(){
-		this(null);
+		this(null, null, null);
 	}
 	
 	@Get("/")
@@ -31,22 +34,16 @@ public class ProdutoController {
 	
 	@Get
 	public void lista(){
-		EntityManager em = JPAUtil.criaEntityManager();
-		ProdutoDao produtoDao = new ProdutoDao(em);
-		List<Produto> lista = produtoDao.lista();
-		result.include(lista);
+		result.include("produtoList", dao.lista());
 	}
 	
 	@Get
 	public void formulario(){}
 
 	@Post
-	public void adiciona(Produto produto){
-		EntityManager em = JPAUtil.criaEntityManager();
-		ProdutoDao produtoDao = new ProdutoDao(em);
-		em.getTransaction().begin();
-		produtoDao.adiciona(produto);
-		em.getTransaction().commit();
+	public void adiciona(@Valid Produto produto){
+		validator.onErrorForwardTo(this).formulario();
+		dao.adiciona(produto);
 		result.include("message", "PRODUTO ADICIONADO");
 		result.redirectTo(this).lista();
 	}

@@ -9,6 +9,7 @@
 <title>Produtos</title>
 </head>
 <body class="container">
+	<div class="col s4 right">${usuarioLogado.usuario.nome}</div>
 	<h1 class="center-align">PRODUTOS</h1>
 	<table class="centered bordered striped">
 		<thead>
