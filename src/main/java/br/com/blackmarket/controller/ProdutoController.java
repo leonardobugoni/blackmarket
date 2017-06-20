@@ -14,7 +14,7 @@ import br.com.caelum.vraptor.Path;
 public class ProdutoController {
 
 	@Path("/")
-	public void inicio(){} 
+	public void inicio(){}
 	
 	@Path("/produto/lista")
 	public List<Produto> lista(){
@@ -22,5 +22,4 @@ public class ProdutoController {
 		ProdutoDao dao = new ProdutoDao(em);
 		return dao.lista();
 	}
-	
 }

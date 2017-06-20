@@ -1,10 +1,8 @@
-package br.com.blackmarket.observers;
+package br.com.blackmarker.observers;
 
 import javax.enterprise.event.Observes;
 import javax.persistence.EntityManager;
 
-import br.com.blackmarket.dao.ProdutoDao;
-import br.com.blackmarket.dao.UsuarioDao;
 import br.com.blackmarket.model.Produto;
 import br.com.blackmarket.model.Usuario;
 import br.com.blackmarket.util.JPAUtil;
@@ -26,11 +24,11 @@ public class InitialDataObserver {
 		EntityManager em = JPAUtil.criaEntityManager();
 		em.getTransaction().begin();
 
-		em.persist(new Usuario("vraptor", "vraptor"));
+		em.persist(new Usuario("admin", "123456"));
 
-		em.persist(new Produto("DVD/Blu-ray Justin Bieber", 120.8, 2));
-		em.persist(new Produto("Carro de F1", 1.99, 5));
-		em.persist(new Produto("Livro da Casa do Código", 29.9, 10));
+		em.persist(new Produto("IPHONE 6S", "64GB PRATA", 20, 2200.99, 25.00));
+		em.persist(new Produto("SAMSUNG J5", "16GB DOURADO", 50, 1500.90, 20.00));
+		em.persist(new Produto("MOTOROLA Z2 SNAPS", "64GB PRETO", 15, 2880.90, 30.00));
 		
 		em.getTransaction().commit();
 		em.close();

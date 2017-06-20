@@ -7,23 +7,32 @@ import javax.persistence.Id;
 
 @Entity
 public class Produto {
-
+	
 	@GeneratedValue @Id
 	private Long id;
 
 	private String nome;
 	
-	private Double valor;
+	private String descricao;
 	
 	private Integer quantidade;
 
+	private Double valor;
+
+	private Double valorFrete;
+	
+	@Deprecated
 	public Produto() {
+		this(null, null, null, null, null);
 	}
 	
-	public Produto(String nome, Double valor, Integer quantidade) {
+	public Produto(String nome, String descricao, Integer quantidade , Double valor, Double valorFrete) {
 		this.nome = nome;
-		this.valor = valor;
+		this.descricao = descricao;
 		this.quantidade = quantidade;
+		this.valor = valor;
+		this.valorFrete = valorFrete;
+		
 	}
 
 	public Long getId() {
@@ -32,6 +41,22 @@ public class Produto {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public Double getValorFrete() {
+		return valorFrete;
+	}
+
+	public void setValorFrete(Double valorFrete) {
+		this.valorFrete = valorFrete;
 	}
 
 	public String getNome() {
