@@ -1,7 +1,9 @@
 package br.com.blackmarket.controller;
 
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 import javax.validation.Valid;
+
 import br.com.blackmarket.annotations.Public;
 import br.com.blackmarket.dao.ProdutoDao;
 import br.com.blackmarket.model.Produto;
@@ -11,6 +13,7 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.validator.Validator;
+import br.eti.clairton.repository.Repository;
 
 @Controller
 public class ProdutoController {
@@ -18,16 +21,18 @@ public class ProdutoController {
 	private final Result result;
 	private final ProdutoDao dao;
 	private final Validator validator;
+	private final Repository repository;
 	
 	@Inject
-	public ProdutoController(Result result, ProdutoDao dao, Validator validator){
+	public ProdutoController(Result result, ProdutoDao dao, Validator validator, Repository repository){
 		this.result = result;
 		this.dao = dao;
 		this.validator = validator;
+		this.repository = repository;
 	}
 	
 	public ProdutoController(){
-		this(null, null, null);
+		this(null, null, null, null);
 	}
 	
 	@Public
@@ -45,7 +50,7 @@ public class ProdutoController {
 	@Post
 	public void adiciona(@Valid Produto produto){
 		validator.onErrorForwardTo(this).formulario();
-		dao.adiciona(produto);
+		repository.persist(produto);
 		result.include("message", "PRODUTO ADICIONADO");
 		result.redirectTo(this).lista();
 	}
@@ -53,7 +58,7 @@ public class ProdutoController {
 	@Delete
 	public void remove(@Valid Long id){
 		validator.onErrorForwardTo(this).formulario();
-	    dao.remove(id);
+	    repository.remove(id);
 	    result.include("message", "PRODUTO REMOVIDO");
 		result.redirectTo(this).lista();
 	}
@@ -61,14 +66,12 @@ public class ProdutoController {
 	@Post
 	public Produto editar(Long id){
 		return dao.busca(id);
-		
 	}
 	
 	@Post
 	public void altera(@Valid Produto produto) {
 		validator.onErrorForwardTo(this).lista();
-		result.include("message", "ERRO! PRODUTO NÃO ALTERADO");
-	    produto = dao.atualiza(produto);
+	    repository.merge(produto);
 		result.include("message", "PRODUTO ALTERADO");
 		result.redirectTo(this).lista();
 	 }

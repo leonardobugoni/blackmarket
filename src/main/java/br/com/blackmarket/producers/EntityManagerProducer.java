@@ -10,7 +10,7 @@ public class EntityManagerProducer {
 
 	@RequestScoped
 	@Produces 
-	public EntityManager criaEntityMM(){
+	public EntityManager criaEntityEM(){
 		return JPAUtil.criaEntityManager();
 	}
 	
