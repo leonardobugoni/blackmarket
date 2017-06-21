@@ -6,10 +6,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="../materialize/css/libs/materialize.min.css">
 <link rel="stylesheet" type="text/css" href="../materialize/css/libs/google-fonts.css">
-<title>Produtos</title>
+<title>BLACK MARKET</title>
 </head>
-<body class="container">
-	<div class="col s4 right">${usuarioLogado.usuario.nome}</div>
+<body>
+<nav>
+   	<div class="nav-wrapper teal lighten-1">
+     	<a href="#!" class="brand-logo center">BLACK MARKET</a>
+     	<ul class="right hide-on-med-and-down">
+     		<li><a class="">${usuarioLogado.usuario.nome}</a></li>
+     		<li><a class="" value="LOGOUT"></a></li>
+     	</ul>
+      	<ul class="left hide-on-med-and-down">
+        	<li><a href="<c:url value='/produto/formulario'/>">ADICIONAR PROTUDOS</a></li>
+       	 	<li><a href="<c:url value='/produto/lista'/>">LISTA DE PRODUTOS</a></li>
+       	 	<li><a href="<c:url value='/login/'/>">LOGIN</a></li>
+     	</ul>
+   	</div>
+</nav>
+<div class="container">
 	<h1 class="center-align">PRODUTOS</h1>
 	<table class="centered bordered striped">
 		<thead>
@@ -20,6 +34,8 @@
 				<th>QUANTIDADE</th>
 				<th>VALOR</th>
 				<th>VALOR FRETE</th>
+				<th>EDITAR</th>
+				<th>REMOVER</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -30,25 +46,28 @@
 					<td>${produto.descricao}</td>			
 					<td>${produto.quantidade}</td>			
 					<td>${produto.valor}</td>			
-					<td>${produto.valorFrete}</td>			
+					<td>${produto.valorFrete}</td>
+					<td>
+						<form action="<c:url value='/produto/editar?id=${produto.id}'/>" method="POST">
+							<!-- <input type="hidden" name="_method" value="DELETE" /> -->
+							<div class="col s4 right">
+								<input type="submit" class="btn waves-effect waves-light btn-small right" value="EDITAR"></input>
+							</div>
+						</form>
+					</td>
+					<td>
+						<form action="<c:url value='/produto/remove?id=${produto.id}'/>" method="POST">
+							<input type="hidden" name="_method" value="DELETE" />
+							<div class="col s4 right">
+								<input type="submit" class="btn waves-effect waves-light btn-small right" value="REMOVER"></input>
+							</div>
+						</form>
+					</td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
-	${message}
-	
-	
-		
-	
-	<div class="row">
-		<form action="<c:url value='/produto/remove'/>" method="DELETE">
-			<div class="col s4">
-				REMOVER PELO ID:<input type="text" />
-			</div>
-			<div class="col s4 right">
-				<input type="submit" class="btn waves-effect waves-light btn-large right" value="REMOVER"></input>
-			</div>
-		</form>
-	</div>
+	<div class="center"><h4>${message}</h4></div>
+</div>	
 </body>
 </html>

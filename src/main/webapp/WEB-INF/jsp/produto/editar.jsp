@@ -24,34 +24,31 @@
    	</div>
 </nav>
 <div class="container">
-
-	<h1 class="center-align">ADICIONAR PRODUTOS</h1>
+	<h1 class="center-align">EDITAR PRODUTO</h1>
 	<div class="row">
-		<form action="<c:url value='/produto/adiciona'/>" method="POST">
+		<form action="<c:url value='/produto/altera'/>" method="POST">
+			<input type="hidden" name="produto.id" value="${produto.id}"/>
 			<div class="col s6">
-				NOME: <input type="text" name="produto.nome"/>
+				NOME: <input type="text" name="produto.nome" value="${produto.nome}"/>
 			</div>
 			<div class="col s6">
-				DESCRIÇÃO: <input type="text" name="produto.descricao"/>
+				DESCRIÇÃO: <input type="text" name="produto.descricao" value="${produto.descricao}"/>
 			</div>
 			<div class="col s4">
-				QUANTIDADE: <input type="number" name="produto.quantidade"/>
+				QUANTIDADE: <input type="number" name="produto.quanitdade" value="${produto.quantidade}"/>
 			</div>
 			<div class="col s4">
-				VALOR: <input type="number" name="produto.valor"/>
+				VALOR: <input type="number" name="produto.valor" value="${produto.valor}"/>
 			</div>
 			<div class="col s4">
-				VALOR DO FRETE: <input type="number" name="produto.valorFrete"/>
+				VALOR DO FRETE: <input type="number" name="produto.valorFrete" value="${produto.valorFrete}"/>
 			</div>
 			<div class="col s9"></div>
 			<div class="col s3 right">
-				<input type="submit" class="btn waves-effect waves-light btn-large right" value="ADICIONAR"></input>	
+				<input type="submit" class="btn waves-effect waves-light btn-large right" value="SALVAR"></input>	
 			</div>
 		</form>
 	</div>
-	<c:forEach items="${errors}" var="erro">
-		${erro.category} - ${erro.message} <br>
-	</c:forEach>
 </div>
 </body>
 </html>

@@ -2,7 +2,7 @@ package br.com.blackmarket.controller;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
-
+import br.com.blackmarket.annotations.Public;
 import br.com.blackmarket.dao.ProdutoDao;
 import br.com.blackmarket.model.Produto;
 import br.com.caelum.vraptor.Controller;
@@ -17,7 +17,7 @@ public class ProdutoController {
 	
 	private final Result result;
 	private final ProdutoDao dao;
-	private final Validator validator; 
+	private final Validator validator;
 	
 	@Inject
 	public ProdutoController(Result result, ProdutoDao dao, Validator validator){
@@ -30,6 +30,7 @@ public class ProdutoController {
 		this(null, null, null);
 	}
 	
+	@Public
 	@Get("/")
 	public void inicio(){}
 	
@@ -48,10 +49,29 @@ public class ProdutoController {
 		result.include("message", "PRODUTO ADICIONADO");
 		result.redirectTo(this).lista();
 	}
-		
+
 	@Delete
-	public void remove(Produto produto){
-	    dao.remove(produto);
-	    result.redirectTo(this).lista();
+	public void remove(@Valid Long id){
+		validator.onErrorForwardTo(this).formulario();
+	    dao.remove(id);
+	    result.include("message", "PRODUTO REMOVIDO");
+		result.redirectTo(this).lista();
 	}
+	
+	@Post
+	public Produto editar(Long id){
+		return dao.busca(id);
+		
+	}
+	
+	@Post
+	public void altera(@Valid Produto produto) {
+		validator.onErrorForwardTo(this).lista();
+		result.include("message", "ERRO! PRODUTO NÃO ALTERADO");
+	    produto = dao.atualiza(produto);
+		result.include("message", "PRODUTO ALTERADO");
+		result.redirectTo(this).lista();
+	 }
+	
+
 }

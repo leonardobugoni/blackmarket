@@ -21,21 +21,36 @@ public class ProdutoDao {
 	public ProdutoDao(){
 		this(null);
 	}
-	
+
 	public void adiciona(Produto produto) {
 		em.getTransaction().begin();
 		em.persist(produto);
 		em.getTransaction().commit();
 	}
 
-	public void remove(Produto produto) {
+	public void remove(Long id) {
 		em.getTransaction().begin();
-		em.remove(busca(produto));
+		em.remove(busca(id));
 		em.getTransaction().commit();
 	}
-
-	public Produto busca(Produto produto) {
+	
+	public Produto carrega(Produto produto) {
 		return em.find(Produto.class, produto.getId());
+	}
+	
+	public Produto atualiza(Produto produto) {
+		em.getTransaction().begin();
+		Produto p = em.merge(produto);
+		em.getTransaction().commit();
+		return p;
+	}
+	
+	/*public Produto busca(Produto produto) {
+		return em.find(Produto.class, produto.getId());
+	}*/
+
+	public Produto busca(Long id) {
+		return em.find(Produto.class, id);
 	}
 
 	@SuppressWarnings("unchecked")

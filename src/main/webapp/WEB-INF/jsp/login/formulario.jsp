@@ -8,7 +8,22 @@
 <link rel="stylesheet" type="text/css" href="../materialize/css/libs/google-fonts.css">
 <title>BLACK MARKET</title>
 </head>
-<body class="container">
+<body>
+<nav>
+   	<div class="nav-wrapper teal lighten-1">
+     	<a href="#!" class="brand-logo center">BLACK MARKET</a>
+     	<ul class="right hide-on-med-and-down">
+     		<a class="">${usuarioLogado.usuario.nome}</a>
+     	</ul>
+      	<ul class="left hide-on-med-and-down">
+        	<li><a href="<c:url value='/produto/formulario'/>">ADICIONAR PROTUDOS</a></li>
+       	 	<li><a href="<c:url value='/produto/lista'/>">LISTA DE PRODUTOS</a></li>
+       	 	<li><a href="<c:url value='/login/'/>">LOGIN</a></li>
+     	</ul>
+   	</div>
+</nav>
+
+<div class="container">
 	<h1 class="center-align">LOGIN</h1>
 	<form action="<c:url value='autentica'/>" method="POST">
 	<div class="col s4">
@@ -25,5 +40,6 @@
 	<c:forEach items="${errors}" var="erro">
 		${erro.category} - ${erro.message} <br>
 	</c:forEach>
+</div>
 </body>
 </html>
