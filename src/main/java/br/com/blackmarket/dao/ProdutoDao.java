@@ -20,6 +20,7 @@ public class ProdutoDao {
 	
 	public ProdutoDao(){
 		this(null);
+		
 	}
 
 /*	public void adiciona(Produto produto) {
@@ -43,12 +44,12 @@ public class ProdutoDao {
 		Produto p = em.merge(produto);
 		em.getTransaction().commit();
 		return p;
-	}*/
+	}
 	
-	/*public Produto busca(Produto produto) {
+	public Produto busca(Produto produto) {
 		return em.find(Produto.class, produto.getId());
 	}*/
-
+	
 	public Produto busca(Long id) {
 		return em.find(Produto.class, id);
 	}

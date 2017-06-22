@@ -1,7 +1,7 @@
 package br.com.blackmarket.controller;
 
 import javax.inject.Inject;
-import javax.transaction.Transactional;
+import javax.persistence.EntityManager;
 import javax.validation.Valid;
 
 import br.com.blackmarket.annotations.Public;
@@ -22,17 +22,19 @@ public class ProdutoController {
 	private final ProdutoDao dao;
 	private final Validator validator;
 	private final Repository repository;
+	private final EntityManager em;
 	
 	@Inject
-	public ProdutoController(Result result, ProdutoDao dao, Validator validator, Repository repository){
+	public ProdutoController(Result result, ProdutoDao dao, Validator validator, Repository repository, EntityManager em){
 		this.result = result;
 		this.dao = dao;
 		this.validator = validator;
 		this.repository = repository;
+		this.em = em;
 	}
 	
 	public ProdutoController(){
-		this(null, null, null, null);
+		this(null, null, null, null, null);
 	}
 	
 	@Public
@@ -50,7 +52,9 @@ public class ProdutoController {
 	@Post
 	public void adiciona(@Valid Produto produto){
 		validator.onErrorForwardTo(this).formulario();
+		em.getTransaction().begin();
 		repository.persist(produto);
+		em.getTransaction().commit();
 		result.include("message", "PRODUTO ADICIONADO");
 		result.redirectTo(this).lista();
 	}
@@ -58,7 +62,10 @@ public class ProdutoController {
 	@Delete
 	public void remove(@Valid Long id){
 		validator.onErrorForwardTo(this).formulario();
-	    repository.remove(id);
+		Produto produto = repository.byId(Produto.class, id);
+		em.getTransaction().begin();
+	    repository.remove(produto);
+	    em.getTransaction().commit();
 	    result.include("message", "PRODUTO REMOVIDO");
 		result.redirectTo(this).lista();
 	}
@@ -71,10 +78,12 @@ public class ProdutoController {
 	@Post
 	public void altera(@Valid Produto produto) {
 		validator.onErrorForwardTo(this).lista();
-	    repository.merge(produto);
+		
+		em.getTransaction().begin();
+	    em.merge(produto);
+	    em.getTransaction().commit();
+	    
 		result.include("message", "PRODUTO ALTERADO");
 		result.redirectTo(this).lista();
 	 }
-	
-
 }
