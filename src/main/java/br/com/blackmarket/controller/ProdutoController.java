@@ -11,6 +11,7 @@ import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Delete;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
+import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.validator.Validator;
 import br.eti.clairton.repository.Repository;
@@ -75,7 +76,7 @@ public class ProdutoController {
 		return dao.busca(id);
 	}
 	
-	@Post
+	@Put
 	public void altera(@Valid Produto produto) {
 		validator.onErrorForwardTo(this).lista();
 		

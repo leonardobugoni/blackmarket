@@ -26,7 +26,7 @@
 <div class="container">
 	<h1 class="center-align">EDITAR PRODUTO</h1>
 	<div class="row">
-		<form action="<c:url value='/produto/altera'/>" method="POST">
+		<form action="<c:url value='/produto/altera?='/>" method="PUT">
 			<input type="hidden" name="produto.id" value="${produto.id}"/>
 			<div class="col s6">
 				NOME: <input type="text" name="produto.nome" value="${produto.nome}"/>
