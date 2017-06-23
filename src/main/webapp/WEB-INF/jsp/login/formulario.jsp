@@ -35,6 +35,9 @@
 	<div class="col s3 right">
 		<input type="submit" class="btn waves-effect waves-light btn-large right" value="LOGIN"></input>
 	</div>
+	<div class="col s3 left">
+		<a href="<c:url value='/login/novo'/>" class="btn waves-effect waves-light btn-large right">CRIAR CONTA</a>
+	</div>
 	
 	</form>
 	<c:forEach items="${errors}" var="erro">

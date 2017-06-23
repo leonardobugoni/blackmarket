@@ -24,7 +24,7 @@
    	</div>
 </nav>
 <div class="container">
-
+	<div class="center"><h4>${message}</h4></div>
 </div>
 </body>
 </html>

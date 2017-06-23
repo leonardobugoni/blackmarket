@@ -34,6 +34,5 @@ public class AutorizadorInterceptor {
 			return;
 		}
 		stack.next();
-	}
-	
+	}	
 }
