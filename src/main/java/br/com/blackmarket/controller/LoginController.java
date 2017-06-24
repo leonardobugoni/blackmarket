@@ -2,7 +2,6 @@ package br.com.blackmarket.controller;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.validation.Valid;
 
 import br.com.blackmarket.annotations.Public;
 import br.com.blackmarket.dao.UsuarioDao;
@@ -13,7 +12,6 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.validator.I18nMessage;
 import br.com.caelum.vraptor.validator.Validator;
-import br.eti.clairton.repository.Repository;
 
 @Controller
 public class LoginController {
@@ -25,7 +23,7 @@ public class LoginController {
 	private final EntityManager em;
 	
 	@Inject
-	public LoginController(UsuarioDao dao, Validator validator, Result result, UsuarioLogado usuarioLogado, Repository repository, EntityManager em){
+	public LoginController(UsuarioDao dao, Validator validator, Result result, UsuarioLogado usuarioLogado, EntityManager em){
 		this.dao = dao;
 		this.validator = validator;
 		this.result = result;
@@ -35,7 +33,7 @@ public class LoginController {
 	
 	
 	public LoginController(){
-		this(null, null, null, null, null, null);
+		this(null, null, null, null, null);
 	}
 	
 	@Public
