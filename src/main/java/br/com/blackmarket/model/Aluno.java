@@ -24,7 +24,7 @@ public class Aluno {
 	
 	@NotNull(message="NÃO PODE SER EM BRANCO")
 	@Min(value = 0, message="NÃO PODE SER MENOR QUE 0")
-	private Double telefone;
+	private Long telefone;
 
 	
 	@Deprecated
@@ -32,7 +32,7 @@ public class Aluno {
 		this(null, null, null, null);
 	}
 	
-	public Aluno(Long matricula, String nome, String endereco, Double telefone) {
+	public Aluno(Long matricula, String nome, String endereco, Long telefone) {
 		this.matricula = matricula;
 		this.nome = nome;
 		this.endereco = endereco;
@@ -72,11 +72,11 @@ public class Aluno {
 		this.endereco = endereco;
 	}
 
-	public Double getTelefone() {
+	public Long getTelefone() {
 		return telefone;
 	}
 
-	public void setTelefone(Double telefone) {
+	public void setTelefone(Long telefone) {
 		this.telefone = telefone;
 	}
 }

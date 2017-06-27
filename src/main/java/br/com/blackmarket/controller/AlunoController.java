@@ -4,6 +4,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.validation.Valid;
 
+import br.com.blackmarket.annotations.Public;
 import br.com.blackmarket.dao.AlunoDao;
 import br.com.blackmarket.model.Aluno;
 import br.com.caelum.vraptor.Controller;
@@ -34,7 +35,7 @@ public class AlunoController {
 		this(null, null, null, null);
 	}
 	
-	
+	@Public
 	@Get
 	public void lista(){
 		result.include("alunoList", dao.lista());
@@ -45,7 +46,7 @@ public class AlunoController {
 
 	@Post
 	public void adiciona(@Valid Aluno aluno){
-		validator.onErrorForwardTo(this).formulario();
+		validator.onErrorForwardTo(ErroController.class).erro();
 		em.getTransaction().begin();
 		em.persist(aluno);
 		em.getTransaction().commit();
@@ -55,7 +56,7 @@ public class AlunoController {
 
 	@Delete
 	public void remove(@Valid Long id){
-		validator.onErrorForwardTo(UniversidadeController.class).inicio();
+		validator.onErrorForwardTo(ErroController.class).erro();
 	    dao.remove(id);
 	    result.include("message", "ALUNO REMOVIDO");
 	    result.redirectTo(this).lista();
@@ -68,7 +69,7 @@ public class AlunoController {
 	
 	@Put
 	public void altera(@Valid Aluno aluno) {
-		validator.onErrorForwardTo(this).lista();
+		validator.onErrorForwardTo(ErroController.class).erro();
 		
 		em.getTransaction().begin();
 	    em.merge(aluno);

@@ -18,12 +18,9 @@
      	</ul>
       	<ul class="left hide-on-med-and-down">
        	 	<li><a href="<c:url value='/login/'/>">LOGIN</a></li>
-      	 	  <li><a class='dropdown-button btn' href='#' data-activates='dropdown1'>COMPUTADORES</a></li>
-			  <!-- Dropdown Structure -->
-			  <ul id='dropdown1' class='dropdown-content'>
-	        	<li><a href="<c:url value='/computador/formulario'/>">ADICIONAR COMPUTADORES</a></li>
-	       	 	<li><a href="<c:url value='/computador/lista'/>">LISTA DE COMPUTADORES</a></li>
-			  </ul>
+      	 	<li><a href="<c:url value='/computador/lista'/>">COMPUTADORES</a></li>
+      	 	<li><a href="<c:url value='/aluno/lista'/>">ALUNOS</a></li>
+      	 	<li><a href="<c:url value='/professor/lista'/>">PROFESSORES</a></li>
      	</ul>
    	</div>
 </nav>
@@ -46,7 +43,7 @@
 				<tr>
 					<td>${aluno.id}</td>			
 					<td>${aluno.nome}</td>			
-					<td>${alunom.endereco}</td>			
+					<td>${aluno.endereco}</td>			
 					<td>${aluno.matricula}</td>			
 					<td>${aluno.telefone}</td>			
 					<td>

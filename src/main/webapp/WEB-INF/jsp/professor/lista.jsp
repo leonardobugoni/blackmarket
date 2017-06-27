@@ -25,29 +25,31 @@
    	</div>
 </nav>
 <div class="container">
-	<h1 class="center-align">COMPUTADORES</h1>
+	<h1 class="center-align">LISTA DE PROFESSORES</h1>
 	<table class="centered bordered striped">
 		<thead>
 			<tr>
 				<th>ID</th>
 				<th>NOME</th>
-				<th>DESCRICAO</th>
-				<th>QUANTIDADE</th>
-				<th>VALOR</th>
+				<th>ENDEREÇO</th>
+				<th>MATERIA</th>
+				<th>IDADE</th>
+				<th>SALÁRIO</th>
 				<th>EDITAR</th>
 				<th>REMOVER</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${computadorList}" var="computador">
+			<c:forEach items="${professorList}" var="professor">
 				<tr>
-					<td>${computador.id}</td>			
-					<td>${computador.nome}</td>			
-					<td>${computador.descricao}</td>			
-					<td>${computador.quantidade}</td>			
-					<td>${computador.valor}</td>			
+					<td>${professor.id}</td>			
+					<td>${professor.nome}</td>			
+					<td>${professor.endereco}</td>		
+					<td>${professor.materia}</td>		
+					<td>${professor.idade}</td>			
+					<td>${professor.salario}</td>			
 					<td>
-						<form action="<c:url value='/computador/editar?id=${computador.id}'/>" method="POST">
+						<form action="<c:url value='/professor/editar?id=${professor.id}'/>" method="POST">
 							<!-- <input type="hidden" name="_method" value="DELETE" /> -->
 							<div class="col s4 right">
 								<input type="submit" class="btn waves-effect waves-light btn-small right" value="EDITAR"></input>
@@ -55,7 +57,7 @@
 						</form>
 					</td>
 					<td>
-						<form action="<c:url value='/computador/remove?id=${computador.id}'/>" method="POST">
+						<form action="<c:url value='/professor/remove?id=${professor.id}'/>" method="POST">
 							<input type="hidden" name="_method" value="DELETE" />
 							<div class="col s4 right">
 								<input type="submit" class="btn waves-effect waves-light btn-small right" value="REMOVER"></input>

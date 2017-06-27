@@ -10,7 +10,7 @@
 </head>
 <body>
 <nav>
-   	<div class="nav-wrapper teal lighten-1">
+   <div class="nav-wrapper teal lighten-1">
      	<a href="#!" class="brand-logo center">UNIVERSIDADE</a>
      	<ul class="right hide-on-med-and-down">
      		<li><a class="">${usuarioLogado.usuario.nome}</a></li>
@@ -25,31 +25,32 @@
    	</div>
 </nav>
 <div class="container">
-
-	<h1 class="center-align">ADICIONAR ALUNOS</h1>
+	<h1 class="center-align">EDITAR CADASTRO DE UM PROFESSOR</h1>
 	<div class="row">
-		<form action="<c:url value='/aluno/adiciona'/>" method="POST">
+		<form action="<c:url value='/professor/altera?='/>" method="PUT">
+			<input type="hidden" name="professor.id" value="${professor.id}"/>
 			<div class="col s6">
-				NOME: <input type="text" name="aluno.nome"/>
+				NOME: <input type="text" name="professor.nome" value="${professor.nome}"/>
 			</div>
 			<div class="col s6">
-				MATRICULA: <input pattern="^\d{6}$" type="number" name="aluno.matricula"/>
+				ENDEREÇO: <input type="text" name="professor.endereco" value="${professor.endereco}"/>
 			</div>
-			<div class="col s6">
-				ENDEREÇO: <input type="text" name="aluno.endereco"/>
+			<div class="col s5">
+				MATÉRIA: <input type="text" name="professor.materia" value="${professor.materia}"/>
 			</div>
-			<div class="col s6">
-				TELEFONE: <input pattern="^\d{11}$" type="tel" name="aluno.telefone">
+			<div class="col s3">
+				IDADE: <input type="number" name="professor.idade" value="${professor.idade}"/>
+			</div>
+			<div class="col s4">
+				SALÁRIO: <input type="number" name="professor.salario" value="${professor.salario}"/>
 			</div>
 			<div class="col s9"></div>
 			<div class="col s3 right">
-				<input type="submit" class="btn waves-effect waves-light btn-large right" value="ADICIONAR"></input>	
+				<input type="submit" class="btn waves-effect waves-light btn-large right" value="ALTERAR"></input>	
 			</div>
 		</form>
+		</form>
 	</div>
-	<c:forEach items="${errors}" var="erro">
-		${erro.category} - ${erro.message} <br>
-	</c:forEach>
 </div>
 </body>
 </html>

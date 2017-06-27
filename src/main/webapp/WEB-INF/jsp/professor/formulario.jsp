@@ -26,20 +26,23 @@
 </nav>
 <div class="container">
 
-	<h1 class="center-align">ADICIONAR ALUNOS</h1>
+	<h1 class="center-align">CADASTRAR PROFESSOR</h1>
 	<div class="row">
-		<form action="<c:url value='/aluno/adiciona'/>" method="POST">
+		<form action="<c:url value='/professor/adiciona'/>" method="POST">
 			<div class="col s6">
-				NOME: <input type="text" name="aluno.nome"/>
+				NOME: <input type="text" name="professor.nome"/>
 			</div>
 			<div class="col s6">
-				MATRICULA: <input pattern="^\d{6}$" type="number" name="aluno.matricula"/>
+				ENDEREÇO: <input type="text" name="professor.endereco"/>
 			</div>
-			<div class="col s6">
-				ENDEREÇO: <input type="text" name="aluno.endereco"/>
+			<div class="col s5">
+				MATÉRIA: <input type="text" name="professor.materia"/>
 			</div>
-			<div class="col s6">
-				TELEFONE: <input pattern="^\d{11}$" type="tel" name="aluno.telefone">
+			<div class="col s3">
+				IDADE: <input type="number" name="professor.idade"/>
+			</div>
+			<div class="col s4">
+				SALÁRIO: <input type="number" name="professor.salario"/>
 			</div>
 			<div class="col s9"></div>
 			<div class="col s3 right">
