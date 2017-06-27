@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>BLACK MARKET</title>
+<title>UNIVERSIDADE</title>
 </head>
 <body class="container">
-	<h4>PRODUTO REMOVIDO COM SUCESSO</h4>
+	<h4>COMPUTADOR REMOVIDO COM SUCESSO</h4>
 </body>
 </html>

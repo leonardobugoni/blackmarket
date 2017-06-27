@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="../materialize/css/libs/materialize.min.css">
 <link rel="stylesheet" type="text/css" href="../materialize/css/libs/google-fonts.css">
-<title>BLACK MARKET</title>
+<title>UNIVERSIDADE</title>
 </head>
 <body>
 <nav>
@@ -17,8 +17,8 @@
      		<li><a class="" value="LOGOUT"></a></li>
      	</ul>
       	<ul class="left hide-on-med-and-down">
-        	<li><a href="<c:url value='/produto/formulario'/>">ADICIONAR PROTUDOS</a></li>
-       	 	<li><a href="<c:url value='/produto/lista'/>">LISTA DE PRODUTOS</a></li>
+        	<li><a href="<c:url value='/produto/formulario'/>">ADICIONAR COMPUTADOR</a></li>
+       	 	<li><a href="<c:url value='/produto/lista'/>">LISTA DE COMPUTADORES</a></li>
        	 	<li><a href="<c:url value='/login/'/>">LOGIN</a></li>
      	</ul>
    	</div>

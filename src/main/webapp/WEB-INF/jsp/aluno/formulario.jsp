@@ -6,42 +6,39 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="../materialize/css/libs/materialize.min.css">
 <link rel="stylesheet" type="text/css" href="../materialize/css/libs/google-fonts.css">
-<title>BLACK MARKET</title>
+<title>UNIVERSIDADE</title>
 </head>
 <body>
 <nav>
    	<div class="nav-wrapper teal lighten-1">
-     	<a href="#!" class="brand-logo center">BLACK MARKET</a>
+     	<a href="#!" class="brand-logo center">UNIVERSIDADE</a>
      	<ul class="right hide-on-med-and-down">
      		<li><a class="">${usuarioLogado.usuario.nome}</a></li>
      		<li><a class="" value="LOGOUT"></a></li>
      	</ul>
       	<ul class="left hide-on-med-and-down">
-        	<li><a href="<c:url value='/produto/formulario'/>">ADICIONAR PROTUDOS</a></li>
-       	 	<li><a href="<c:url value='/produto/lista'/>">LISTA DE PRODUTOS</a></li>
+        	<li><a href="<c:url value='/computador/formulario'/>">ADICIONAR COMPUTADORES</a></li>
+       	 	<li><a href="<c:url value='/computador/lista'/>">LISTA DE COMPUTADORES</a></li>
        	 	<li><a href="<c:url value='/login/'/>">LOGIN</a></li>
      	</ul>
    	</div>
 </nav>
 <div class="container">
 
-	<h1 class="center-align">ADICIONAR PRODUTOS</h1>
+	<h1 class="center-align">ADICIONAR ALUNOS</h1>
 	<div class="row">
 		<form action="<c:url value='/produto/adiciona'/>" method="POST">
 			<div class="col s6">
-				NOME: <input type="text" name="produto.nome"/>
+				NOME: <input type="text" name="aluno.nome"/>
 			</div>
 			<div class="col s6">
-				DESCRIÇÃO: <input type="text" name="produto.descricao"/>
+				MATRICULA: <input type="text" name="aluno.matricula"/>
 			</div>
 			<div class="col s4">
-				QUANTIDADE: <input type="number" name="produto.quantidade"/>
+				ENDEREÇO: <input type="number" name="aluno.endereco"/>
 			</div>
 			<div class="col s4">
-				VALOR: <input type="number" name="produto.valor"/>
-			</div>
-			<div class="col s4">
-				VALOR DO FRETE: <input type="number" name="produto.valorFrete"/>
+				VALOR: <input type="number" name="aluno.telefone"/>
 			</div>
 			<div class="col s9"></div>
 			<div class="col s3 right">

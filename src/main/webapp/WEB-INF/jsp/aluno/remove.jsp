@@ -7,6 +7,6 @@
 <title>UNIVERSIDADE</title>
 </head>
 <body class="container">
-	<h4>USUARIO CRIADO COM SUCESSO</h4>
+	<h4>ALUNO REMOVIDO COM SUCESSO</h4>
 </body>
 </html>

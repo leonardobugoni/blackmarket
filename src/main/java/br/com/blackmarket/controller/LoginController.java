@@ -52,7 +52,7 @@ public class LoginController {
 		em.persist(usuario);
 		em.getTransaction().commit();
 		result.include("message", "USUARIO CRIADO COM SUCESSO!");
-		result.redirectTo(ProdutoController.class).inicio();
+		result.redirectTo(ComputadorController.class).inicio();
 	}
 	
 	@Post
@@ -63,7 +63,7 @@ public class LoginController {
 			validator.onErrorUsePageOf(this).formulario();
 		}
 		usuarioLogado.setUsuario(usuario);
-		result.redirectTo(ProdutoController.class).lista();
+		result.redirectTo(ComputadorController.class).lista();
 	}
 }
 

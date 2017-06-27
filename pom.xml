@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>br.com.blackmarket</groupId>
-	<artifactId>blackmarket</artifactId>
+	<artifactId>universidade</artifactId>
 	<version>1.0.0</version>
 	<packaging>war</packaging>
 

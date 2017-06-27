@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 
 
 @Entity
-public class Produto {
+public class Computador {
 	
 	@GeneratedValue @Id
 	private Long id;
@@ -27,21 +27,16 @@ public class Produto {
 	@Min(value = 0, message="NÃO PODE SER MENOR QUE 0")
 	private Double valor;
 	
-	@NotNull(message="NÃO PODE SER EM BRANCO")
-	@Min(value = 0, message="NÃO PODE SER MENOR QUE 0")
-	private Double valorFrete;
-	
 	@Deprecated
-	public Produto() {
-		this(null, null, null, null, null);
+	public Computador() {
+		this(null, null, null, null);
 	}
 	
-	public Produto(String nome, String descricao, Integer quantidade , Double valor, Double valorFrete) {
+	public Computador(String nome, String descricao, Integer quantidade , Double valor) {
 		this.nome = nome;
 		this.descricao = descricao;
 		this.quantidade = quantidade;
 		this.valor = valor;
-		this.valorFrete = valorFrete;
 		
 	}
 
@@ -59,14 +54,6 @@ public class Produto {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
-	}
-
-	public Double getValorFrete() {
-		return valorFrete;
-	}
-
-	public void setValorFrete(Double valorFrete) {
-		this.valorFrete = valorFrete;
 	}
 
 	public String getNome() {

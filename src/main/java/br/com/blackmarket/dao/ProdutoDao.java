@@ -6,7 +6,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
-import br.com.blackmarket.model.Produto;
+import br.com.blackmarket.model.Computador;
 
 @RequestScoped
 public class ProdutoDao {
@@ -23,9 +23,9 @@ public class ProdutoDao {
 		
 	}
 
-	public void adiciona(Produto produto) {
+	public void adiciona(Computador computador) {
 		em.getTransaction().begin();
-		em.persist(produto);
+		em.persist(computador);
 		em.getTransaction().commit();
 	}
 
@@ -35,27 +35,27 @@ public class ProdutoDao {
 		em.getTransaction().commit();
 	}
 	
-	public Produto carrega(Produto produto) {
-		return em.find(Produto.class, produto.getId());
+	public Computador carrega(Computador computador) {
+		return em.find(Computador.class, computador.getId());
 	}
 	
-	public Produto atualiza(Produto produto) {
+	public Computador atualiza(Computador computador) {
 		em.getTransaction().begin();
-		Produto p = em.merge(produto);
+		Computador p = em.merge(computador);
 		em.getTransaction().commit();
 		return p;
 	}
 	
-	public Produto busca(Produto produto) {
-		return em.find(Produto.class, produto.getId());
+	public Computador busca(Computador computador) {
+		return em.find(Computador.class, computador.getId());
 	}
 	
-	public Produto busca(Long id) {
-		return em.find(Produto.class, id);
+	public Computador busca(Long id) {
+		return em.find(Computador.class, id);
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Produto> lista() {
+	public List<Computador> lista() {
 		return em.createQuery("select p from Produto p").getResultList();
 	}
 }
