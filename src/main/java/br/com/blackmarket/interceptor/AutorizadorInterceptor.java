@@ -1,4 +1,4 @@
-package br.com.blackmarker.interceptor;
+package br.com.blackmarket.interceptor;
 
 import javax.inject.Inject;
 
