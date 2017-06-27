@@ -9,16 +9,16 @@ import javax.persistence.EntityManager;
 import br.com.blackmarket.model.Computador;
 
 @RequestScoped
-public class ProdutoDao {
+public class ComputadorDao {
 
 	private final EntityManager em;
 
 	@Inject
-	public ProdutoDao(EntityManager em) {
+	public ComputadorDao(EntityManager em) {
 		this.em = em;
 	}
 	
-	public ProdutoDao(){
+	public ComputadorDao(){
 		this(null);
 		
 	}
@@ -41,9 +41,9 @@ public class ProdutoDao {
 	
 	public Computador atualiza(Computador computador) {
 		em.getTransaction().begin();
-		Computador p = em.merge(computador);
+		Computador c = em.merge(computador);
 		em.getTransaction().commit();
-		return p;
+		return c;
 	}
 	
 	public Computador busca(Computador computador) {
@@ -56,6 +56,6 @@ public class ProdutoDao {
 
 	@SuppressWarnings("unchecked")
 	public List<Computador> lista() {
-		return em.createQuery("select p from Produto p").getResultList();
+		return em.createQuery("select c from Computador c").getResultList();
 	}
 }

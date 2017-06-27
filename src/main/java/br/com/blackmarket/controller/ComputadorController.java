@@ -4,8 +4,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.validation.Valid;
 
-import br.com.blackmarket.annotations.Public;
-import br.com.blackmarket.dao.ProdutoDao;
+import br.com.blackmarket.dao.ComputadorDao;
 import br.com.blackmarket.model.Computador;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Delete;
@@ -19,12 +18,12 @@ import br.com.caelum.vraptor.validator.Validator;
 public class ComputadorController {
 	
 	private final Result result;
-	private final ProdutoDao dao;
+	private final ComputadorDao dao;
 	private final Validator validator;
 	private final EntityManager em;
 	
 	@Inject
-	public ComputadorController(Result result, ProdutoDao dao, Validator validator, EntityManager em){
+	public ComputadorController(Result result, ComputadorDao dao, Validator validator, EntityManager em){
 		this.result = result;
 		this.dao = dao;
 		this.validator = validator;
@@ -34,10 +33,6 @@ public class ComputadorController {
 	public ComputadorController(){
 		this(null, null, null, null);
 	}
-	
-	@Public
-	@Get("/")
-	public void inicio(){}
 	
 	@Get
 	public void lista(){
@@ -58,13 +53,11 @@ public class ComputadorController {
 	}
 
 	@Delete
-	public void remove(@Valid Computador computador){
-		validator.onErrorForwardTo(this).formulario();
-		em.getTransaction().begin();
-	    em.remove(computador);
-	    em.getTransaction().commit();
+	public void remove(@Valid Long id){
+		validator.onErrorForwardTo(UniversidadeController.class).inicio();
+	    dao.remove(id);
 	    result.include("message", "COMPUTADOR REMOVIDO");
-		result.redirectTo(this).lista();
+	    result.redirectTo(this).lista();
 	}
 	
 	@Post

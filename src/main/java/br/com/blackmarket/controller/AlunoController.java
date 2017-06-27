@@ -54,13 +54,11 @@ public class AlunoController {
 	}
 
 	@Delete
-	public void remove(@Valid Aluno aluno){
-		validator.onErrorForwardTo(this).formulario();
-		em.getTransaction().begin();
-	    em.remove(aluno);
-	    em.getTransaction().commit();
+	public void remove(@Valid Long id){
+		validator.onErrorForwardTo(UniversidadeController.class).inicio();
+	    dao.remove(id);
 	    result.include("message", "ALUNO REMOVIDO");
-		result.redirectTo(this).lista();
+	    result.redirectTo(this).lista();
 	}
 	
 	@Post

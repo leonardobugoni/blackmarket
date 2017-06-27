@@ -52,7 +52,7 @@ public class LoginController {
 		em.persist(usuario);
 		em.getTransaction().commit();
 		result.include("message", "USUARIO CRIADO COM SUCESSO!");
-		result.redirectTo(ComputadorController.class).inicio();
+		result.redirectTo(UniversidadeController.class).inicio();
 	}
 	
 	@Post

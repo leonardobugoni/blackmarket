@@ -17,14 +17,18 @@
      		<li><a class="" value="LOGOUT"></a></li>
      	</ul>
       	<ul class="left hide-on-med-and-down">
-        	<li><a href="<c:url value='/computador/formulario'/>">ADICIONAR COMPUTADOR</a></li>
-       	 	<li><a href="<c:url value='/computador/lista'/>">LISTA DE COMPUTADORES</a></li>
        	 	<li><a href="<c:url value='/login/'/>">LOGIN</a></li>
+      	 	  <li><a class='dropdown-button btn' href='#' data-activates='dropdown1'>COMPUTADORES</a></li>
+			  <!-- Dropdown Structure -->
+			  <ul id='dropdown1' class='dropdown-content'>
+	        	<li><a href="<c:url value='/computador/formulario'/>">ADICIONAR COMPUTADORES</a></li>
+	       	 	<li><a href="<c:url value='/computador/lista'/>">LISTA DE COMPUTADORES</a></li>
+			  </ul>
      	</ul>
    	</div>
 </nav>
 <div class="container">
-	<h1 class="center-align">PRODUTOS</h1>
+	<h1 class="center-align">COMPUTADORES</h1>
 	<table class="centered bordered striped">
 		<thead>
 			<tr>
@@ -38,13 +42,13 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${produtoList}" var="produto">
+			<c:forEach items="${computadorList}" var="computador">
 				<tr>
-					<td>${produto.id}</td>			
-					<td>${produto.nome}</td>			
-					<td>${produto.descricao}</td>			
-					<td>${produto.quantidade}</td>			
-					<td>${produto.valor}</td>			
+					<td>${computador.id}</td>			
+					<td>${computador.nome}</td>			
+					<td>${computador.descricao}</td>			
+					<td>${computador.quantidade}</td>			
+					<td>${computador.valor}</td>			
 					<td>
 						<form action="<c:url value='/computador/editar?id=${computador.id}'/>" method="POST">
 							<!-- <input type="hidden" name="_method" value="DELETE" /> -->

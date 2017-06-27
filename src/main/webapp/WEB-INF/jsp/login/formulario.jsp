@@ -13,12 +13,17 @@
    	<div class="nav-wrapper teal lighten-1">
      	<a href="#!" class="brand-logo center">UNIVERSIDADE</a>
      	<ul class="right hide-on-med-and-down">
-     		<a class="">${usuarioLogado.usuario.nome}</a>
+     		<li><a class="">${usuarioLogado.usuario.nome}</a></li>
+     		<li><a class="" value="LOGOUT"></a></li>
      	</ul>
       	<ul class="left hide-on-med-and-down">
-        	<li><a href="<c:url value='/computador/formulario'/>">ADICIONAR COMPUTADOR</a></li>
-       	 	<li><a href="<c:url value='/computador/lista'/>">LISTA DE COMPUTADORES</a></li>
        	 	<li><a href="<c:url value='/login/'/>">LOGIN</a></li>
+      	 	  <li><a class='dropdown-button btn' href='#' data-activates='dropdown1'>COMPUTADORES</a></li>
+			  <!-- Dropdown Structure -->
+			  <ul id='dropdown1' class='dropdown-content'>
+	        	<li><a href="<c:url value='/computador/formulario'/>">ADICIONAR COMPUTADORES</a></li>
+	       	 	<li><a href="<c:url value='/computador/lista'/>">LISTA DE COMPUTADORES</a></li>
+			  </ul>
      	</ul>
    	</div>
 </nav>
