@@ -39,7 +39,7 @@
 				ENDEREÇO: <input type="text" name="aluno.endereco"/>
 			</div>
 			<div class="col s6">
-				TELEFONE: <input pattern="^\d{11}$" type="tel" name="aluno.telefone">
+				TELEFONE: <input type="text" name="aluno.telefone">
 			</div>
 			<div class="col s9"></div>
 			<div class="col s3 right">

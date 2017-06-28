@@ -35,11 +35,11 @@
 			<div class="col s6">
 				ENDEREÇO: <input type="text" name="aluno.endereco" value="${aluno.endereco}"/>
 			</div>
-			<div class="col s4">
+			<div class="col s6">
 				MATRICULA: <input type="number" name="aluno.matricula" value="${aluno.matricula}"/>
 			</div>
-			<div class="col s4">
-				TELEFONE: <input type="number" name="aluno.telefone" value="${aluno.telefone}"/>
+			<div class="col s6">
+				TELEFONE: <input type="text" name="aluno.telefone" value="${aluno.telefone}"/>
 			</div>
 			<div class="col s9"></div>
 			<div class="col s3 right">

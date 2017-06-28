@@ -67,6 +67,7 @@
 		</tbody>
 	</table>
 	<div class="center"><h4>${message}</h4></div>
+	<div class="right"><a href="<c:url value='/aluno/formulario'/>" class="btn waves-effect waves-light btn-small right" >ADICIONAR</a></div>
 </div>	
 </body>
 </html>

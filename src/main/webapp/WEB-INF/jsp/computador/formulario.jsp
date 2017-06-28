@@ -35,10 +35,10 @@
 			<div class="col s6">
 				DESCRIÇÃO: <input type="text" name="computador.descricao"/>
 			</div>
-			<div class="col s4">
+			<div class="col s6">
 				QUANTIDADE: <input type="number" name="computador.quantidade"/>
 			</div>
-			<div class="col s4">
+			<div class="col s6">
 				VALOR: <input type="number" name="computador.valor"/>
 			</div>
 			<div class="col s9"></div>
