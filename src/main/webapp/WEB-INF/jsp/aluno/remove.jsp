@@ -8,7 +8,7 @@
 </head>
 <nav>
 <div class="nav-wrapper teal lighten-1">
-     	<a href="#!" class="brand-logo center">UNIVERSIDADE</a>
+     	<a href="<c:url value='/'/>" class="brand-logo center">UNIVERSIDADE</a>
      	<ul class="right hide-on-med-and-down">
      		<li><a class="">${usuarioLogado.usuario.nome}</a></li>
      		<li><a class="" value="LOGOUT"></a></li>

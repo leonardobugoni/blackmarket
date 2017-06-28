@@ -60,6 +60,7 @@ public class AlunoController {
 	    dao.remove(id);
 	    result.include("message", "ALUNO REMOVIDO");
 	    result.redirectTo(this).lista();
+	    
 	}
 	
 	@Post
